@@ -1,4 +1,4 @@
-module tt_um_quantum_engine (
+{"name":"Verify Chip Design","on":"push","jobs":{"verify":{"runs-on":"ubuntu-latest","steps":[{"uses":"actions/checkout@v4"},{"name":"Install Yosys","run":"sudo apt-get update && sudo apt-get install -y yosys"},{"name":"Verify Verilog","run":"yosys -p 'read_verilog src/project.v; synth -top tt_um_quantum_engine; check'"}]}}}module tt_um_quantum_engine (
     input  wire [7:0] ui_in,
     output wire [7:0] uo_out,
     input  wire [7:0] uio_in,
