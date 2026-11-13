@@ -1,21 +1,2 @@
-name: Verify Chip Design
-on: [push]
-jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Install Open-Source Chip Verifier (Yosys)
-      run: sudo apt-get update && sudo apt-get install -y yosys
-    - name: Synthesize and Verify Verilog for Silicon
-      run: yosys -p "read_verilog src/project.v; synth -top tt_um_quantum_engine; check" name: Verify Chip Design
-on: [push]
-jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Open-Source Chip Verifier (Yosys)
-        run: sudo apt-get update && sudo apt-get install -y yosys
-      - name: Synthesize & Verify Verilog for Silicon
-        run: yosys -p "read_verilog src/project.v; synth -top tt_um_quantum_engine; check"
+{"name":"Verify Chip Design","on":"push","jobs":{"verify":{"runs-on":"ubuntu-latest","steps":[{"uses":"actions/checkout@v4"},{"name":"Install Yosys","run":"sudo apt-get update && sudo apt-get install -y yosys"},{"name":"Verify Verilog","run":"yosys -p 'read_verilog src/project.v; synth -top tt_um_quantum_engine; check'"}]}}}
+
